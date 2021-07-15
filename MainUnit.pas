@@ -105,48 +105,68 @@ end;
 procedure TMainForm.btnSumClick(Sender: TObject);
 begin
 //  edString.Text := edString.Text + ' + ';
-  Ftag := 0;
-  x := StrToInt(edString.Text);
-  edString.Clear;
+  if edString.text = '' then
+    ShowMessage('Enter a number')
+  else begin
+    Ftag := 0;
+    x := StrToInt(edString.Text);
+    edString.Clear;
+  end;
 end;
 
 procedure TMainForm.btnUmnClick(Sender: TObject);
 begin
 //  edString.Text := edString.Text + ' * ';
-  Ftag := 2;
-  x := StrToInt(edString.Text);
-  edString.Clear;
+  if edString.text = '' then
+    ShowMessage('Enter a number')
+  else begin
+    Ftag := 2;
+    x := StrToInt(edString.Text);
+    edString.Clear;
+  end;
 end;
 
 procedure TMainForm.btnMinClick(Sender: TObject);
 begin
 //  edString.Text := edString.Text + ' - ';
-  ftag := 1;
-  x := StrToInt(edString.Text);
-  edString.Clear;
+  if edString.text = '' then
+    ShowMessage('Enter a number')
+  else begin
+    ftag := 1;
+    x := StrToInt(edString.Text);
+    edString.Clear;
+  end;
 end;
 
 procedure TMainForm.btnRasClick(Sender: TObject);
 begin
 //  edString.Text := edString.Text + ' / ';
-  ftag := 3;
-  x := StrToInt(edString.Text);
-  edString.Clear;
+  if edString.text = '' then
+    ShowMessage('Enter a number')
+  else begin
+    ftag := 3;
+    x := StrToInt(edString.Text);
+    edString.Clear;
+  end;
 end;
 
 procedure TMainForm.btnEqClick(Sender: TObject);
 begin
-  Y := StrToInt(edString.text);
-  if (x <> 0) and (y = 0) and (Ftag = 3) then
-    ShowMessage('На ноль делить нельзя')
+  if edString.text = '' then
+    ShowMessage('Enter a number')
   else begin
-    case ftag of
-      0: Res := x + y;
-      1: Res := x - y;
-      2: Res := x * y;
-      3: Res := x / y;
+  Y := StrToInt(edString.text);
+    if (x <> 0) and (y = 0) and (Ftag = 3) then
+      ShowMessage('You cant divide it by zero')
+    else begin
+      case ftag of
+        0: Res := x + y;
+        1: Res := x - y;
+        2: Res := x * y;
+        3: Res := x / y;
+      end;
+      edString.text := FloatToStr(Res);
     end;
-    edString.text := FloatToStr(Res);
   end;
 end;
 
