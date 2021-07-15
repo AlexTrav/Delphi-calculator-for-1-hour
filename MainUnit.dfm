@@ -4,21 +4,22 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = #1050#1072#1083#1100#1082#1091#1083#1103#1090#1086#1088
-  ClientHeight = 245
-  ClientWidth = 276
+  ClientHeight = 248
+  ClientWidth = 275
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
   object pnEd: TPanel
     Left = 0
     Top = 0
-    Width = 276
+    Width = 275
     Height = 49
     Align = alTop
     TabOrder = 0
@@ -40,8 +41,8 @@ object MainForm: TMainForm
   object pnBtn: TPanel
     Left = 0
     Top = 49
-    Width = 276
-    Height = 196
+    Width = 275
+    Height = 199
     Align = alClient
     TabOrder = 1
     object btn1: TButton
@@ -283,6 +284,24 @@ object MainForm: TMainForm
       ParentFont = False
       TabOrder = 15
       OnClick = btn0Click
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 8
+    Top = 8
+    object nFile: TMenuItem
+      Caption = 'File'
+      object nExit: TMenuItem
+        Caption = 'Exit'
+        OnClick = nExitClick
+      end
+    end
+    object nHelp: TMenuItem
+      Caption = 'Help'
+      object nAboutTheProgram: TMenuItem
+        Caption = 'About the program'
+        OnClick = nAboutTheProgramClick
+      end
     end
   end
 end

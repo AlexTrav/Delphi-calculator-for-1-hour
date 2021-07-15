@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls;
+  Dialogs, StdCtrls, ExtCtrls, Menus, ActnList;
 
 type
   TMainForm = class(TForm)
@@ -27,6 +27,11 @@ type
     btnEq: TButton;
     btnClear: TButton;
     btn0: TButton;
+    MainMenu1: TMainMenu;
+    nFile: TMenuItem;
+    nExit: TMenuItem;
+    nHelp: TMenuItem;
+    nAboutTheProgram: TMenuItem;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
@@ -43,6 +48,8 @@ type
     procedure btnEqClick(Sender: TObject);
     procedure btnClearClick(Sender: TObject);
     procedure btn0Click(Sender: TObject);
+    procedure nExitClick(Sender: TObject);
+    procedure nAboutTheProgramClick(Sender: TObject);
   private
     x, y, Res: Real;
     Ftag: Integer;
@@ -54,6 +61,8 @@ var
   MainForm: TMainForm;
 
 implementation
+
+uses AboutUnit;
 
 {$R *.dfm}
 
@@ -178,6 +187,16 @@ end;
 procedure TMainForm.btn0Click(Sender: TObject);
 begin
   edString.Text := edString.Text + IntToStr(0);
+end;
+
+procedure TMainForm.nExitClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TMainForm.nAboutTheProgramClick(Sender: TObject);
+begin
+  AboutForm.Show;
 end;
 
 end.
